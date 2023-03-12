@@ -22,18 +22,11 @@ def is_adult(value):
 
 # Create your models here.
 class AppUser(auth_models.AbstractUser):
-    USERNAME_MIN_LEN = 6
-    USERNAME_MAX_LEN = 18
     FIRST_NAME_MIN_LEN = 6
     FIRST_NAME_MAX_LEN = 18
     LAST_NAME_MIN_LEN = 6
     LAST_NAME_MAX_LEN = 18
 
-    user_name = models.CharField(max_length=USERNAME_MAX_LEN,
-                                 validators=(MinLengthValidator(USERNAME_MIN_LEN),),
-                                 blank=False,
-                                 null=False,
-                                 ),
     email = models.EmailField(
         blank=False,
         null=False,
@@ -49,8 +42,8 @@ class AppUser(auth_models.AbstractUser):
                                  null=False,
                                  ),
     age = models.IntegerField(validators=(is_adult,),
-                              blank=False,
-                              null=False,)
+                              blank=True,
+                              null=True, )
     picture = models.ImageField(upload_to='accounts_photos/',
                                 blank=True,
-                                null=True,)
+                                null=True, )
