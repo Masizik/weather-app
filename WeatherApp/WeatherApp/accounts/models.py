@@ -34,6 +34,10 @@ class AppUser(auth_models.AbstractUser):
                                  blank=False,
                                  null=False,
                                  ),
+    email = models.EmailField(
+        blank=False,
+        null=False,
+    )
     first_name = models.CharField(max_length=FIRST_NAME_MAX_LEN,
                                   validators=(MinLengthValidator(FIRST_NAME_MIN_LEN), only_letters),
                                   blank=False,
