@@ -4,7 +4,7 @@ from WeatherApp.accounts.views import SignInView, RegistrationView, UserDetailsV
     SignOut
 
 urlpatterns = [
-    path('login/', SignInView.as_view(), name='login'),
+    path('login/', SignInView.as_view(redirect_authenticated_user=True), name='login'),
     path('register/', RegistrationView.as_view(), name='register'),
     path('logout/', SignOut.as_view(), name='logout'),
     path('<int:pk>/', include([
