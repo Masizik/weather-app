@@ -110,7 +110,7 @@ class UserDeleteForm(forms.ModelForm, DisabledFormMixin):
 
     class Meta:
         model = UserModel
-        fields = ('first_name', 'last_name', 'email', 'picture')
+        fields = '__all__'
         field_classes = {'username': auth_forms.UsernameField, }
 
     def __init__(self, *args, **kwargs):

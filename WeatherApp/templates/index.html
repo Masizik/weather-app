@@ -5,7 +5,7 @@
      <form>
           <div class="row mb-4">
             <div class="form-group col-md-9">
-              <input id="exampleFormControlInput5" type="email" placeholder="Type city name" class="form-control form-control-underlined">
+              <input name = "city" value="Varna" id="exampleFormControlInput5" type="email" placeholder="Type city name" class="form-control form-control-underlined">
             </div>
             <div class="form-group col-md-3">
               <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
@@ -21,10 +21,10 @@
               <div class="card card-weather">
                 <div class="card-body">
                   <div class="weather-date-location">
-                    <h3>Friday</h3>
+                    <h3>{{ temperature_weekly_first_day }}</h3>
                     <p class="text-gray">
-                      <span class="weather-date">25 March, 2019</span>
-                      <span class="weather-location">Sydney, Australia</span>
+                      <span class="weather-date">{{ temperature_weekly_first_day }}</span>
+                      <span class="weather-location">{{ countrycode }}</span>
                     </p>
                   </div>
                   <div class="weather-data d-flex">
