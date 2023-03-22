@@ -31,44 +31,68 @@ class IndexView(views.TemplateView):
         context['pressure'] = str(data_current['main']['pressure'])
         context['humidity'] = str(data_current['main']['humidity'])
         context['description'] = str(data_current['weather'][0]['description'])
+        context['temp_min'] = str(data_current['main']['temp_min']) + ' ℃'
+        context['temp_max'] = str(data_current['main']['temp_max']) + ' ℃'
+        context['feels_like'] = str(data_current['main']['feels_like']) + ' ℃'
+        context['speed'] = str(data_current['wind']['speed']) + ' mph'
         context['icon'] = str(data_current['weather'][0]['icon'])
+
 
         # context['map'] = data_map
 
         context['temperature_weekly_first_day'] = str(data_weekly['list'][0]['main']['temp']) + ' ℃'
         context['pressure_weekly_first_day'] = str(data_weekly['list'][0]['main']['pressure'])
         context['humidity_weekly_first_day'] = str(data_weekly['list'][0]['main']['humidity'])
+        context['temp_min_weekly_first_day'] = str(data_weekly['list'][0]['main']['temp_min']) + ' ℃'
+        context['temp_max_weekly_first_day'] = str(data_weekly['list'][0]['main']['temp_max']) + ' ℃'
+        context['feels_like_weekly_first_day'] = str(data_weekly['list'][0]['main']['feels_like']) + ' ℃'
+        context['speed_weekly_first_day'] = str(data_weekly['list'][0]['wind']['speed']) + ' mph'
         context['description_weekly_first_day'] = str(data_weekly['list'][0]['weather'][0]['description'])
         context['icon_weekly_first_day'] = str(data_weekly['list'][0]['weather'][0]['icon'])
+        context['date_weekly_first_day'] = str(data_weekly['list'][0]['dt_txt'])
 
         context['temperature_weekly_second_day'] = str(data_weekly['list'][1]['main']['temp']) + ' ℃'
         context['pressure_weekly_second_day'] = str(data_weekly['list'][1]['main']['pressure'])
         context['humidity_weekly_second_day'] = str(data_weekly['list'][1]['main']['humidity'])
+        context['temp_min_weekly_second_day'] = str(data_weekly['list'][1]['main']['temp_min']) + ' ℃'
+        context['temp_max_weekly_second_day'] = str(data_weekly['list'][1]['main']['temp_max']) + ' ℃'
+        context['feels_like_weekly_second_day'] = str(data_weekly['list'][1]['main']['feels_like']) + ' ℃'
+        context['speed_weekly_second_day'] = str(data_weekly['list'][1]['wind']['speed']) + ' mph'
         context['description_weekly_second_day'] = str(data_weekly['list'][1]['weather'][0]['description'])
         context['icon_weekly_second_day'] = str(data_weekly['list'][1]['weather'][0]['icon'])
+        context['date_weekly_second_day'] = str(data_weekly['list'][1]['dt_txt'])
 
         context['temperature_weekly_third_day'] = str(data_weekly['list'][2]['main']['temp']) + ' ℃'
         context['pressure_weekly_third_day'] = str(data_weekly['list'][2]['main']['pressure'])
         context['humidity_weekly_third_day'] = str(data_weekly['list'][2]['main']['humidity'])
+        context['temp_min_weekly_third_day'] = str(data_weekly['list'][2]['main']['temp_min']) + ' ℃'
+        context['temp_max_weekly_third_day'] = str(data_weekly['list'][2]['main']['temp_max']) + ' ℃'
+        context['feels_like_weekly_third_day'] = str(data_weekly['list'][2]['main']['feels_like']) + ' ℃'
+        context['speed_weekly_third_day'] = str(data_weekly['list'][2]['wind']['speed']) + ' mph'
         context['description_weekly_third_day'] = str(data_weekly['list'][2]['weather'][0]['description'])
         context['icon_weekly_third_day'] = str(data_weekly['list'][2]['weather'][0]['icon'])
+        context['date_weekly_third_day'] = str(data_weekly['list'][2]['dt_txt'])
 
         context['temperature_weekly_fourth_day'] = str(data_weekly['list'][3]['main']['temp']) + ' ℃'
         context['pressure_weekly_fourth_day'] = str(data_weekly['list'][3]['main']['pressure'])
         context['humidity_weekly_fourth_day'] = str(data_weekly['list'][3]['main']['humidity'])
+        context['temp_min_weekly_fourth_day'] = str(data_weekly['list'][3]['main']['temp_min']) + ' ℃'
+        context['temp_max_weekly_fourth_day'] = str(data_weekly['list'][3]['main']['temp_max']) + ' ℃'
+        context['feels_like_weekly_fourth_day'] = str(data_weekly['list'][3]['main']['feels_like']) + ' ℃'
+        context['speed_weekly_fourth_day'] = str(data_weekly['list'][3]['wind']['speed']) + ' mph'
         context['description_weekly_fourth_day'] = str(data_weekly['list'][3]['weather'][0]['description'])
         context['icon_weekly_fourth_day'] = str(data_weekly['list'][3]['weather'][0]['icon'])
+        context['date_weekly_fourth_day'] = str(data_weekly['list'][3]['dt_txt'])
 
         context['temperature_weekly_fifth_day'] = str(data_weekly['list'][4]['main']['temp']) + ' ℃'
         context['pressure_weekly_fifth_day'] = str(data_weekly['list'][4]['main']['pressure'])
         context['humidity_weekly_fifth_day'] = str(data_weekly['list'][4]['main']['humidity'])
+        context['temp_min_weekly_fifth_day'] = str(data_weekly['list'][4]['main']['temp_min']) + ' ℃'
+        context['temp_max_weekly_fifth_day'] = str(data_weekly['list'][4]['main']['temp_max']) + ' ℃'
+        context['feels_like_weekly_fifth_day'] = str(data_weekly['list'][4]['main']['feels_like']) + ' ℃'
+        context['speed_weekly_fifth_day'] = str(data_weekly['list'][4]['wind']['speed']) + ' mph'
         context['description_weekly_fifth_day'] = str(data_weekly['list'][4]['weather'][0]['description'])
         context['icon_weekly_fifth_day'] = str(data_weekly['list'][4]['weather'][0]['icon'])
+        context['date_weekly_fifth_day'] = str(data_weekly['list'][4]['dt_txt'])
 
         return context
-
-
-
-
-
-
