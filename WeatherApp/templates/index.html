@@ -48,174 +48,48 @@
                     </div>
                   </div>
                 </div>
-{#                <div class="card-body p-0">#}
-{#                  <div class="d-flex weakly-weather">#}
-{#                    <div class="weakly-weather-item">#}
-{#                      <img src="https://openweathermap.org/img/w/{{ icon_weekly_first_day }}.png">#}
-{#                      <p class="mb-0">#}
-{#                        {{ date_weekly_first_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        {{ description_weekly_first_day }}#}
-{#                      </p>#}
-{#                      <i class="mdi mdi-weather-{{ description_weekly_first_day }}"></i>#}
-{#                      <p class="mb-0">#}
-{#                        {{ temperature_weekly_first_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Pressure: {{ pressure_weekly_first_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Humidity: {{ humidity_weekly_first_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Min: {{ temp_min_weekly_first_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Max: {{ temp_max_weekly_first_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Feels like: {{ feels_like_weekly_first_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Speed: {{ speed_weekly_first_day }}#}
-{#                      </p>#}
-{#                    </div>#}
-{#                    <div class="weakly-weather-item">#}
-{#                      <img src="https://openweathermap.org/img/w/{{ icon_weekly_second_day }}.png">#}
-{#                      <p class="mb-0">#}
-{#                        {{ date_weekly_second_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        {{ description_weekly_second_day }}#}
-{#                      </p>#}
-{#                      <i class="mdi mdi-weather-{{ description_weekly_second_day }}"></i>#}
-{#                      <p class="mb-0">#}
-{#                        {{ temperature_weekly_second_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Pressure: {{ pressure_weekly_second_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Humidity: {{ humidity_weekly_second_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Min: {{ temp_min_weekly_second_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Max: {{ temp_max_weekly_second_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Feels like: {{ feels_like_weekly_second_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Speed: {{ speed_weekly_second_day }}#}
-{#                      </p>#}
-{#                    </div>#}
-{#                    <div class="weakly-weather-item">#}
-{#                      <img src="https://openweathermap.org/img/w/{{ icon_weekly_third_day }}.png">#}
-{#                      <p class="mb-0">#}
-{#                        {{ date_weekly_third_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        {{ description_weekly_third_day }}#}
-{#                      </p>#}
-{#                      <i class="mdi mdi-weather-{{ description_weekly_third_day }}"></i>#}
-{#                      <p class="mb-0">#}
-{#                        {{ temperature_weekly_third_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Pressure: {{ pressure_weekly_third_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Humidity: {{ humidity_weekly_third_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Min: {{ temp_min_weekly_third_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Max: {{ temp_max_weekly_third_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Feels like: {{ feels_like_weekly_third_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Speed: {{ speed_weekly_third_day }}#}
-{#                      </p>#}
-{#                    </div>#}
-{#                    <div class="weakly-weather-item">#}
-{#                      <img src="https://openweathermap.org/img/w/{{ icon_weekly_fourth_day }}.png"}>#}
-{#                      <p class="mb-0">#}
-{#                        {{ date_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        {{ description_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                      <i class="mdi mdi-weather-{{ description_weekly_fourth_day }}"></i>#}
-{#                      <p class="mb-0">#}
-{#                        {{ temperature_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Pressure: {{ pressure_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Humidity: {{ humidity_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Min: {{ temp_min_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Max: {{ temp_max_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Feels like: {{ feels_like_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Speed: {{ speed_weekly_fourth_day }}#}
-{#                      </p>#}
-{#                    </div>#}
-{#                    <div class="weakly-weather-item">#}
-{#                      <img src="https://openweathermap.org/img/w/{{ icon_weekly_fifth_day }}.png">#}
-{#                      <p class="mb-0">#}
-{#                        {{ date_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        {{ description_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                      <i class="mdi mdi-weather-{{ description_weekly_fifth_day }}"></i>#}
-{#                      <p class="mb-0">#}
-{#                        {{ temperature_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Pressure: {{ pressure_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Humidity: {{ humidity_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Min: {{ temp_min_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Max: {{ temp_max_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Feels like: {{ feels_like_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                      <p class="mb-0">#}
-{#                        Speed: {{ speed_weekly_fifth_day }}#}
-{#                      </p>#}
-{#                    </div>#}
-{#                    </div>#}
-{#                  </div>#}
+                  {% for w_temp, w_description, w_temp_max, w_temp_min, w_temp_feels_like, w_humidity, w_date, w_pressure, w_speed, w_icon in weekly_all.values %}
+                <div class="card-body p-0">
+                  <div class="d-flex weakly-weather">
+                    <div class="weakly-weather-item">
+                      <img src="https://openweathermap.org/img/w/{{ w_icon }}.png">
+                      <p class="mb-0">
+                        {{ w_date }}
+                      </p>
+                      <p class="mb-0">
+                        {{ w_description }}
+                      </p>
+                      <i class="mdi mdi-weather-{{ w_description }}"></i>
+                      <p class="mb-0">
+                        {{ w_temp }}
+                      </p>
+                      <p class="mb-0">
+                        Pressure: {{ w_pressure }}
+                      </p>
+                      <p class="mb-0">
+                        Humidity: {{ w_humidity }}
+                      </p>
+                      <p class="mb-0">
+                        Min: {{ w_temp_min }}
+                      </p>
+                      <p class="mb-0">
+                        Max: {{ w_temp_max }}
+                      </p>
+                      <p class="mb-0">
+                        Feels like: {{ w_temp_feels_like }}
+                      </p>
+                      <p class="mb-0">
+                        Speed: {{ w_speed }}
+                      </p>
+                    </div>
                 </div>
               </div>
+                  {% endfor %}
               <!--weather card ends-->
             </div>
             </div>
             </div>
-    {% for i in num %}
-        <p>{{ i }}</p>
-    {% endfor %}
+    </div>
             </div>
 
 {% endblock %}

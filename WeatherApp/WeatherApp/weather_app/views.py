@@ -15,10 +15,10 @@ class IndexView(views.TemplateView):
     form_class = CreateHistoryModel
     model = HistoryModel
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         city = str(self.request.GET.get('city'))
+        num = 40
         weekly_temp = []
         weekly_pressure = []
         weekly_humidity = []
@@ -30,15 +30,17 @@ class IndexView(views.TemplateView):
         weekly_icon = []
         weekly_date = []
 
-        source_current = urllib.request.urlopen('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=720dfb1dcf0e39692ddd35603283c28a').read()
-        source_weekly = urllib.request.urlopen('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=720dfb1dcf0e39692ddd35603283c28a').read()
+        source_current = urllib.request.urlopen(
+            'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=720dfb1dcf0e39692ddd35603283c28a').read()
+        source_weekly = urllib.request.urlopen(
+            'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=720dfb1dcf0e39692ddd35603283c28a').read()
         # source_map = urllib.request.urlopen('https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid=720dfb1dcf0e39692ddd35603283c28a').read()
 
         data_current = json.loads(source_current)
         data_weekly = json.loads(source_weekly)
         # data_map = json.loads(source_map)
 
-        for i in range(0, 40):
+        for i in range(0, num):
             weekly_temp.append(str(data_weekly['list'][i]['main']['temp']) + ' ℃')
             weekly_pressure.append(str(data_weekly['list'][i]['main']['pressure']))
             weekly_humidity.append(str(data_weekly['list'][i]['main']['humidity']))
@@ -73,6 +75,10 @@ class IndexView(views.TemplateView):
         context['weekly_pressure'] = weekly_pressure
         context['weekly_speed'] = weekly_speed
         context['weekly_icon'] = weekly_icon
+
+        # context['weekly_all'] = enumerate(zip(context['weekly_temp'], context['weekly_description']))
+
+        context['weekly_all'] = dict(enumerate(zip(context['weekly_temp'], context['weekly_description'], context['weekly_temp_max'],context['weekly_temp_min'],context['weekly_temp_feels_like'],context['weekly_humidity'],context['weekly_date'],context['weekly_pressure'],context['weekly_speed'],context['weekly_icon'])))
 
         # context['map'] = data_map
 
@@ -130,9 +136,5 @@ class IndexView(views.TemplateView):
         # context['description_weekly_fifth_day'] = str(data_weekly['list'][4]['weather'][0]['description'])
         # context['icon_weekly_fifth_day'] = str(data_weekly['list'][4]['weather'][0]['icon'])
         # context['date_weekly_fifth_day'] = str(data_weekly['list'][4]['dt_txt'])
-
-
-
-
 
         return context
