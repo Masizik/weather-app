@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% include "base/partials/more-info-weather.html"  %}
 {% load static %}
 {% load crispy_forms_filters %}
 {% block page_content %}
@@ -48,9 +49,10 @@
                     </div>
                   </div>
                 </div>
-                  {% for w_temp, w_description, w_temp_max, w_temp_min, w_temp_feels_like, w_humidity, w_date, w_pressure, w_speed, w_icon in weekly_all.values %}
+
                 <div class="card-body p-0">
                   <div class="d-flex weakly-weather">
+                    {% for w_temp, w_description, w_temp_max, w_temp_min, w_temp_feels_like, w_humidity, w_date, w_pressure, w_speed, w_icon in weekly_all.values %}
                     <div class="weakly-weather-item">
                       <img src="https://openweathermap.org/img/w/{{ w_icon }}.png">
                       <p class="mb-0">
@@ -63,6 +65,9 @@
                       <p class="mb-0">
                         {{ w_temp }}
                       </p>
+
+
+
                       <p class="mb-0">
                         Pressure: {{ w_pressure }}
                       </p>
@@ -81,10 +86,13 @@
                       <p class="mb-0">
                         Speed: {{ w_speed }}
                       </p>
+
                     </div>
+                      {% endfor %}
                 </div>
+
               </div>
-                  {% endfor %}
+
               <!--weather card ends-->
             </div>
             </div>
