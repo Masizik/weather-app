@@ -1,103 +1,205 @@
 {% extends 'base/base.html' %}
-{% include "base/partials/more-info-weather.html"  %}
+
+{% include "base/partials/more-info-weather.html" %}
+
 {% load static %}
+
 {% load crispy_forms_filters %}
+
 {% block page_content %}
-     <form>
-          <div class="row mb-4">
+
+    <form>
+
+        <div class="row mb-4">
+
             <div class="form-group col-md-9">
-              <input name = "city" id="exampleFormControlInput5" type="text" placeholder="Type city name" class="form-control form-control-underlined">
+
+                <input name="city" id="exampleFormControlInput5" type="text" placeholder="Type city name"
+                       class="form-control form-control-underlined">
+
             </div>
+
             <div class="form-group col-md-3">
-              <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
+
+                <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
+
             </div>
-          </div>
-     </form>
+
+        </div>
+
+    </form>
+
+
 
     <div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="row container d-flex justify-content-center">
-<div class="col-lg-8 grid-margin stretch-card">
-              <!--weather card-->
-              <div class="card card-weather">
-                <div class="card-body">
-                  <div class="weather-date-location">
-                    <h3>{{ city }}</h3>
-                    <img src="https://openweathermap.org/img/w/{{ icon }}.png">
-                    <p class="text-gray">
-                      <span class="weather-date">{{ temperature_weekly_first_day }}</span>
-                      <span class="weather-pressure">Pressure: {{ pressure }} mph</span>
-                      <span class="weather-humidity">Humidity: {{ humidity }}</span>
-                      <span class="weather-speed">Speed: {{ speed }}</span>
-                    </p>
-                  </div>
-                  <div class="weather-data d-flex">
-                    <div class="mr-auto">
-                        <h4 class="display-3">{{ temperature }}</h4>
-                      <p>
-                        Feels Like: {{ feels_like }}
-                      </p>
-                      <p>
-                        Temperature min: {{ temp_min }}
-                      </p>
-                      <p>
-                        Temperature max: {{ temp_max }}
-                      </p>
-                      <p>
-                        Description: {{ description }}
-                      </p>
+
+        <div class="padding">
+
+            <div class="row container d-flex justify-content-center">
+
+                <div class="col-lg-8 grid-margin stretch-card">
+
+                    <!--weather card-->
+
+                    <div class="card card-weather">
+
+                        <div class="card-body">
+
+                            <div class="weather-date-location">
+
+                                <h3>{{ city }}</h3>
+
+                                <img src="https://openweathermap.org/img/w/{{ icon }}.png">
+
+                                <p class="text-gray">
+
+                                    <span class="weather-date">{{ temperature_weekly_first_day }}</span>
+
+                                    <span class="weather-pressure">Pressure: {{ pressure }} mph</span>
+
+                                    <span class="weather-humidity">Humidity: {{ humidity }}</span>
+
+                                    <span class="weather-speed">Speed: {{ speed }}</span>
+
+                                </p>
+
+                            </div>
+
+                            <div class="weather-data d-flex">
+
+                                <div class="mr-auto">
+
+                                    <h4 class="display-3">{{ temperature }}</h4>
+
+                                    <p>
+
+                                        Feels Like: {{ feels_like }}
+
+                                    </p>
+
+                                    <p>
+
+                                        Temperature min: {{ temp_min }}
+
+                                    </p>
+
+                                    <p>
+
+                                        Temperature max: {{ temp_max }}
+
+                                    </p>
+
+                                    <p>
+
+                                        Description: {{ description }}
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="card-body p-0">
+
+                            <div class="d-flex weakly-weather">
+
+                                {% for w_temp, w_description, w_temp_max, w_temp_min, w_temp_feels_like, w_humidity, w_date, w_pressure, w_speed, w_icon in weekly_all.values %}
+
+                                    <div class="weakly-weather-item">
+
+                                        <img src="https://openweathermap.org/img/w/{{ w_icon }}.png">
+
+                                        <p class="mb-0">
+
+                                            {{ w_date }}
+
+                                        </p>
+
+                                        <p class="mb-0">
+
+                                            {{ w_description }}
+
+                                        </p>
+
+                                        <i class="mdi mdi-weather-{{ w_description }}"></i>
+
+                                        <p class="mb-0">
+
+                                            {{ w_temp }}
+
+                                        </p>
+
+<button class="toggle">More Details</button>
+                                        <div class="more">
+
+                                            <p class="mb-0">
+
+                                                Pressure: {{ w_pressure }}
+
+                                            </p>
+
+                                            <p class="mb-0">
+
+                                                Humidity: {{ w_humidity }}
+
+                                            </p>
+
+                                            <p class="mb-0">
+
+                                                Min: {{ w_temp_min }}
+
+                                            </p>
+
+                                            <p class="mb-0">
+
+                                                Max: {{ w_temp_max }}
+
+                                            </p>
+
+                                            <p class="mb-0">
+
+                                                Feels like: {{ w_temp_feels_like }}
+
+                                            </p>
+
+                                            <p class="mb-0">
+
+                                                Speed: {{ w_speed }}
+
+                                            </p>
+
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+
+                                {% endfor %}
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!--weather card ends-->
+
                     </div>
-                  </div>
+
                 </div>
 
-                <div class="card-body p-0">
-                  <div class="d-flex weakly-weather">
-                    {% for w_temp, w_description, w_temp_max, w_temp_min, w_temp_feels_like, w_humidity, w_date, w_pressure, w_speed, w_icon in weekly_all.values %}
-                    <div class="weakly-weather-item">
-                      <img src="https://openweathermap.org/img/w/{{ w_icon }}.png">
-                      <p class="mb-0">
-                        {{ w_date }}
-                      </p>
-                      <p class="mb-0">
-                        {{ w_description }}
-                      </p>
-                      <i class="mdi mdi-weather-{{ w_description }}"></i>
-                      <p class="mb-0">
-                        {{ w_temp }}
-                      </p>
-
-
-
-                      <p class="mb-0">
-                        Pressure: {{ w_pressure }}
-                      </p>
-                      <p class="mb-0">
-                        Humidity: {{ w_humidity }}
-                      </p>
-                      <p class="mb-0">
-                        Min: {{ w_temp_min }}
-                      </p>
-                      <p class="mb-0">
-                        Max: {{ w_temp_max }}
-                      </p>
-                      <p class="mb-0">
-                        Feels like: {{ w_temp_feels_like }}
-                      </p>
-                      <p class="mb-0">
-                        Speed: {{ w_speed }}
-                      </p>
-
-                    </div>
-                      {% endfor %}
-                </div>
-
-              </div>
-
-              <!--weather card ends-->
             </div>
-            </div>
-            </div>
+
+        </div>
+
     </div>
-            </div>
+
+
 
 {% endblock %}
