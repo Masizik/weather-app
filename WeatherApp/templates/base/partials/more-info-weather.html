@@ -1,20 +1,72 @@
 {% block more-info %}
-<p class="mb-0">
-    Pressure: {{ w_pressure }}
-</p>
-<p class="mb-0">
-    Humidity: {{ w_humidity }}
-</p>
-<p class="mb-0">
-    Min: {{ w_temp_min }}
-</p>
-<p class="mb-0">
-    Max: {{ w_temp_max }}
-</p>
-<p class="mb-0">
-    Feels like: {{ w_temp_feels_like }}
-</p>
-<p class="mb-0">
-    Speed: {{ w_speed }}
-</p>
+
+    <div class="weakly-weather-item">
+
+        <img src="https://openweathermap.org/img/w/{{ w_icon }}.png">
+
+        <p class="mb-0">
+
+            {{ w_date }}
+
+        </p>
+
+        <p class="mb-0">
+
+            {{ w_description }}
+
+        </p>
+
+        <i class="mdi mdi-weather-{{ w_description }}"></i>
+
+        <p class="mb-0">
+
+            {{ w_temp }}
+
+        </p>
+
+        <button class="toggle">More Details</button>
+        <div class="more">
+
+            <p class="mb-0">
+
+                Pressure: {{ w_pressure }}
+
+            </p>
+
+            <p class="mb-0">
+
+                Humidity: {{ w_humidity }}
+
+            </p>
+
+            <p class="mb-0">
+
+                Min: {{ w_temp_min }}
+
+            </p>
+
+            <p class="mb-0">
+
+                Max: {{ w_temp_max }}
+
+            </p>
+
+            <p class="mb-0">
+
+                Feels like: {{ w_temp_feels_like }}
+
+            </p>
+
+            <p class="mb-0">
+
+                Speed: {{ w_speed }}
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
 {% endblock %}
