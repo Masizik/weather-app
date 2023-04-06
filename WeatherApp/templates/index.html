@@ -3,6 +3,7 @@
 {% load static %}
 
 
+
 {% block page_content %}
 
     <form>
@@ -40,7 +41,7 @@
 
                     <div class="card card-weather">
 
-                        <div class="card-body">
+                        <div class="card-body" style="background: url('{{ pic }}') no-repeat center; background-size: cover">
 
                             <div class="weather-date-location">
 
@@ -120,6 +121,7 @@
                         <!--weather card ends-->
 
                     </div>
+
 
                 </div>
 

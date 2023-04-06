@@ -38,6 +38,7 @@ class IndexView(views.TemplateView):
         data_weekly = json.loads(source_weekly)
 
 
+
         for i in range(0, num):
             weekly_temp.append(str(data_weekly['list'][i]['main']['temp']) + ' ℃')
             weekly_pressure.append(str(data_weekly['list'][i]['main']['pressure']))
@@ -67,6 +68,15 @@ class IndexView(views.TemplateView):
         context['speed'] = str(data_current['wind']['speed']) + ' mph'
         context['icon'] = str(data_current['weather'][0]['icon'])
 
+        source_pic = urllib.request.urlopen('https://pixabay.com/api/?key=35144089-69d0946cd8388cd304f30dc2e&q=' + (str(data_current['weather'][0]['description']).replace(" ", "%20")
+                                                                                                                    )).read()
+        source_pic_body = urllib.request.urlopen('https://pixabay.com/api/?key=35144089-69d0946cd8388cd304f30dc2e&q=' + (
+            city.replace(" ", "%20")
+            )).read()
+
+        data_pic = json.loads(source_pic)
+        data_pic_body = json.loads(source_pic_body)
+
         context['weekly_temp'] = weekly_temp
         context['weekly_description'] = weekly_description
         context['weekly_temp_max'] = weekly_temp_max
@@ -77,6 +87,8 @@ class IndexView(views.TemplateView):
         context['weekly_pressure'] = weekly_pressure
         context['weekly_speed'] = weekly_speed
         context['weekly_icon'] = weekly_icon
+        context['pic'] = data_pic['hits'][0]['webformatURL']
+        context['pic_body'] = data_pic_body['hits'][0]['webformatURL']
 
         context['weekly_all'] = dict(enumerate(zip(context['weekly_temp'], context['weekly_description'], context['weekly_temp_max'],context['weekly_temp_min'],context['weekly_temp_feels_like'],context['weekly_humidity'],context['weekly_date'],context['weekly_pressure'],context['weekly_speed'],context['weekly_icon'])))
 

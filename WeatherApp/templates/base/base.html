@@ -17,6 +17,12 @@
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="{% static 'javascript/toggle.js' %}"></script>
+
+    <style>
+body {background: url('{{ pic_body }}') no-repeat center;
+    background-size: cover}
+
+</style>
 </head>
 <body>
 {% include 'base/partials/navigation.html' %}
