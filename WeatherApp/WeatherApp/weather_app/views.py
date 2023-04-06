@@ -1,4 +1,6 @@
 import urllib.request
+
+from django.shortcuts import render
 from django.views import generic as views
 import json
 
@@ -76,8 +78,13 @@ class IndexView(views.TemplateView):
         context['weekly_speed'] = weekly_speed
         context['weekly_icon'] = weekly_icon
 
-
         context['weekly_all'] = dict(enumerate(zip(context['weekly_temp'], context['weekly_description'], context['weekly_temp_max'],context['weekly_temp_min'],context['weekly_temp_feels_like'],context['weekly_humidity'],context['weekly_date'],context['weekly_pressure'],context['weekly_speed'],context['weekly_icon'])))
 
 
         return context
+
+
+def error_404_view(request):
+    # we add the path to the 404.html file
+    # here. The name of our HTML file is 404.html
+    return render(request, '404.html')
