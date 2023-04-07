@@ -1,5 +1,5 @@
 import urllib.request
-
+import random
 from django.shortcuts import render
 from django.views import generic as views
 import json
@@ -7,28 +7,26 @@ import json
 from WeatherApp.weather_app.forms import CreateHistoryModel
 from WeatherApp.weather_app.models import HistoryModel
 
+num = 40
+weekly_temp = []
+weekly_pressure = []
+weekly_humidity = []
+weekly_description = []
+weekly_temp_min = []
+weekly_temp_max = []
+weekly_temp_feels_like = []
+weekly_speed = []
+weekly_icon = []
+weekly_date = []
+
 
 # Create your views here.
 class IndexView(views.TemplateView):
     template_name = 'index.html'
-    form_class = CreateHistoryModel
-    model = HistoryModel
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         city = str(self.request.GET.get('city'))
-
-        num = 40
-        weekly_temp = []
-        weekly_pressure = []
-        weekly_humidity = []
-        weekly_description = []
-        weekly_temp_min = []
-        weekly_temp_max = []
-        weekly_temp_feels_like = []
-        weekly_speed = []
-        weekly_icon = []
-        weekly_date = []
 
         source_current = urllib.request.urlopen(
             'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=720dfb1dcf0e39692ddd35603283c28a').read()
@@ -36,8 +34,6 @@ class IndexView(views.TemplateView):
         source_weekly = urllib.request.urlopen(
             'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=720dfb1dcf0e39692ddd35603283c28a').read()
         data_weekly = json.loads(source_weekly)
-
-
 
         for i in range(0, num):
             weekly_temp.append(str(data_weekly['list'][i]['main']['temp']) + ' ℃')
@@ -50,7 +46,6 @@ class IndexView(views.TemplateView):
             weekly_speed.append(str(data_weekly['list'][i]['wind']['speed']) + ' mph')
             weekly_icon.append(str(data_weekly['list'][i]['weather'][0]['icon']))
             weekly_date.append(str(data_weekly['list'][i]['dt_txt']))
-
 
         if city == "None":
             context['city'] = "Varna"
@@ -68,10 +63,12 @@ class IndexView(views.TemplateView):
         context['speed'] = str(data_current['wind']['speed']) + ' mph'
         context['icon'] = str(data_current['weather'][0]['icon'])
 
-        source_pic = urllib.request.urlopen('https://pixabay.com/api/?key=35144089-69d0946cd8388cd304f30dc2e&q=' + (str(data_current['weather'][0]['description']).replace(" ", "%20")
-                                                                                                                    )).read()
-        source_pic_body = urllib.request.urlopen('https://pixabay.com/api/?key=35144089-69d0946cd8388cd304f30dc2e&q=' + (
-            city.replace(" ", "%20")
+        source_pic = urllib.request.urlopen('https://pixabay.com/api/?key=35144089-69d0946cd8388cd304f30dc2e&q=' + (
+            str(data_current['weather'][0]['description']).replace(" ", "%20")
+            )).read()
+        source_pic_body = urllib.request.urlopen(
+            'https://pixabay.com/api/?key=35144089-69d0946cd8388cd304f30dc2e&q=' + (
+                city.replace(" ", "%20")
             )).read()
 
         data_pic = json.loads(source_pic)
@@ -87,11 +84,13 @@ class IndexView(views.TemplateView):
         context['weekly_pressure'] = weekly_pressure
         context['weekly_speed'] = weekly_speed
         context['weekly_icon'] = weekly_icon
-        context['pic'] = data_pic['hits'][0]['webformatURL']
-        context['pic_body'] = data_pic_body['hits'][0]['webformatURL']
+        context['pic'] = data_pic['hits'][random.randint(0, len(data_pic['hits']))]['webformatURL']
+        context['pic_body'] = data_pic_body['hits'][random.randint(0, len(data_pic['hits']))]['webformatURL']
 
-        context['weekly_all'] = dict(enumerate(zip(context['weekly_temp'], context['weekly_description'], context['weekly_temp_max'],context['weekly_temp_min'],context['weekly_temp_feels_like'],context['weekly_humidity'],context['weekly_date'],context['weekly_pressure'],context['weekly_speed'],context['weekly_icon'])))
-
+        context['weekly_all'] = dict(enumerate(
+            zip(context['weekly_temp'], context['weekly_description'], context['weekly_temp_max'],
+                context['weekly_temp_min'], context['weekly_temp_feels_like'], context['weekly_humidity'],
+                context['weekly_date'], context['weekly_pressure'], context['weekly_speed'], context['weekly_icon'])))
 
         return context
 
