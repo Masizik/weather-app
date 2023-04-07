@@ -1,11 +1,10 @@
 import urllib.request
 import random
+from decouple import config
 from django.shortcuts import render
 from django.views import generic as views
 import json
 
-from WeatherApp.weather_app.forms import CreateHistoryModel
-from WeatherApp.weather_app.models import HistoryModel
 
 num = 40
 weekly_temp = []
@@ -29,10 +28,10 @@ class IndexView(views.TemplateView):
         city = str(self.request.GET.get('city'))
 
         source_current = urllib.request.urlopen(
-            'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=720dfb1dcf0e39692ddd35603283c28a').read()
+            'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid='+config('API_KEY_FORECAST')).read()
         data_current = json.loads(source_current)
         source_weekly = urllib.request.urlopen(
-            'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=720dfb1dcf0e39692ddd35603283c28a').read()
+            'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid='+config('API_KEY_FORECAST')).read()
         data_weekly = json.loads(source_weekly)
 
         for i in range(0, num):
@@ -63,11 +62,11 @@ class IndexView(views.TemplateView):
         context['speed'] = str(data_current['wind']['speed']) + ' mph'
         context['icon'] = str(data_current['weather'][0]['icon'])
 
-        source_pic = urllib.request.urlopen('https://pixabay.com/api/?key=35144089-69d0946cd8388cd304f30dc2e&q=' + (
+        source_pic = urllib.request.urlopen('https://pixabay.com/api/?key='+config('API_KEY_PIC')+'&q=' + (
             str(data_current['weather'][0]['description']).replace(" ", "%20")
             )).read()
         source_pic_body = urllib.request.urlopen(
-            'https://pixabay.com/api/?key=35144089-69d0946cd8388cd304f30dc2e&q=' + (
+            'https://pixabay.com/api/?key='+config('API_KEY_PIC')+'&q=' + (
                 city.replace(" ", "%20")
             )).read()
 
