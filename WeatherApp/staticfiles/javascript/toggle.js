@@ -1,5 +1,5 @@
 $(document).ready(function(){
-		$(".toggle").on("click",function(){
+		$(".btn-info").on("click",function(){
 			var $this = $(this);
 			$this.next().slideToggle();
 			if($this.text() === "Less Details"){

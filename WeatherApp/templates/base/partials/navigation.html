@@ -1,30 +1,36 @@
 {% block nav_content %}
     <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar">
   <div class="container-fluid justify-content-between">
 
-<form>
+{#<form>#}
+{##}
+{#        <div class="row mb-4">#}
+{##}
+{#            <div class="form-group col-md-9">#}
+{##}
+{#                <input name="city" id="exampleFormControlInput5" type="text" placeholder="Type city name"#}
+{#                       class="form-control form-control-underlined">#}
+{##}
+{##}
+{##}
+{##}
+{#            <div class="form-group col-md-3">#}
+{##}
+{#                <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>#}
+{##}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#        </div>#}
+{##}
+{#    </form>#}
 
-        <div class="row mb-4">
-
-            <div class="form-group col-md-9">
-
-                <input name="city" id="exampleFormControlInput5" type="text" placeholder="Type city name"
-                       class="form-control form-control-underlined">
-
-
-
-
-            <div class="form-group col-md-3">
-
-                <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Search</button>
-
-            </div>
-
-        </div>
-        </div>
-
-    </form>
+      <form class="d-flex">
+  <input class="border border-3 border-top-0 border-start-0 border-end-0" type="search" name="city" id="exampleFormControlInput5" placeholder="Type city name"
+    aria-label="Search" style=" outline: none;">
+  <button class="btn btn-primary" type="submit">Search </button>
+</form>
 
   </div>
   </div>

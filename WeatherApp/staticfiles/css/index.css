@@ -55,7 +55,6 @@
     border-radius: 0.25rem;
 }
 
-
 /*.card-weather .card-body:first-child {*/
 /*    background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1557323760/weather.svg) no-repeat center;*/
 /*    background-size: cover;*/
@@ -150,3 +149,38 @@ p {
 }
 
 .more {display: none;}
+
+#exampleFormControlInput5{
+    background-color: rgba(255,0,0,0.5);
+    margin-right: 5px;
+}
+form{
+    margin: 0 auto;
+}
+
+.col-lg-8.grid-margin.stretch-card{
+    display: flex;
+  justify-content: center;
+}
+.mr-auto p, h4{
+    color: white;
+}
+
+.text-gray span{
+    color:white;
+}
+h3{
+    color: white;
+}
+
+.d-flex.weakly-weather{
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  /*width: 100%; !* Full-width *!*/
+  /*height: 25px; !* Specified height *!*/
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
