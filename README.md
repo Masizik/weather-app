@@ -1,11 +1,11 @@
-# Wheater App
+# Weather App
 ## Web application with Python Django Framework + RESTful APIs,  It supports the following operation for searching: 
 - search by city
 - search by weather description
 ## Details
 ### The app is based on Django Framework, Javascript, HTML, CSS, Bootstrap and JQuery.
 ## The app uses two RESTful APIs:
-### https://api.openweathermap.org/ - Weather Api for forecast
+### https://api.openweathermap.org/ - Weather API for forecast
 - GET https://api.openweathermap.org/data/2.5/weather?q=' + {name_of_the_city} + '&units=metric&appid=' - get current weather by city
 - GET https://api.openweathermap.org/data/2.5/forecast?q=' + {name_of_the_city} + '&units=metric&appid= - get 3-hour weather forecast 5 days
 ### https://pixabay.com/api/ - Picture API for generating random pictures. With this API app gets background and card picture
